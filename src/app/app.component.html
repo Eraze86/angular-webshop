@@ -1,11 +1,10 @@
-<header>
-  logo, kundvagn
-  <nav>
-kategorier
-  </nav>
-</header>
-<!-- <button (click)="getMovies()"></button> -->
+<app-header>
+</app-header>
+<app-nav></app-nav>
+ 
 <main>
+<app-searchmovies></app-searchmovies>
+  sökfunktion efter filmer. Knapp att trycka i så det hamnar i kundkorgen
   <app-showmovies></app-showmovies>
   <router-outlet></router-outlet>
 </main>
