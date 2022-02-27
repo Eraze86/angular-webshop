@@ -14,6 +14,7 @@ export class ShowmoviesComponent implements OnInit {
   ngOnInit(): void {
     this.service.getServerData().subscribe((data: IData) => {
       console.log(data)
+      //vi vill visa informationen här. Och när man sen trycker på något ska et skickas tillbaka
     })
   }
 
