@@ -5,6 +5,7 @@ export class Movies{
     name: string
     description: string
     price: string
+    imageUrl: string
     year: string
     added: string
     productCategory: string
@@ -14,6 +15,7 @@ export class Movies{
         name: string, 
         description: string, 
         price: string,
+        imageUrl: string,
         year: string,
         added: string,
         productCategory: string){
@@ -21,6 +23,7 @@ export class Movies{
         this.name = name
         this.description = description
         this.price = price
+        this.imageUrl = imageUrl
         this.year = year
         this.added = added
         this.productCategory = productCategory
