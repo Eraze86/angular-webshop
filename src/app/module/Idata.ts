@@ -1,9 +1,9 @@
 export interface IData{
-    id: number
+    id: string
     name: string
     description: string
-    price: number
-    year: number
-    added: number
+    price: string
+    year: string
+    added: string
     productCategory: string
 }

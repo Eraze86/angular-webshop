@@ -9,6 +9,8 @@ import { ShowmoviesComponent } from './components/showmovies/showmovies.componen
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SearchmoviesComponent } from './components/searchmovies/searchmovies.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { SearchmoviesComponent } from './components/searchmovies/searchmovies.co
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

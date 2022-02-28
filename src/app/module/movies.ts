@@ -1,21 +1,21 @@
 import { AppRoutingModule } from "../app-routing.module"
 
 export class Movies{
-    id: number
+    id: string
     name: string
     description: string
-    price: number
-    year: number
-    added: number
+    price: string
+    year: string
+    added: string
     productCategory: string
 
     constructor(
-        id: number, 
+        id: string, 
         name: string, 
         description: string, 
-        price: number,
-        year: number,
-        added: number,
+        price: string,
+        year: string,
+        added: string,
         productCategory: string){
         this.id = id
         this.name = name

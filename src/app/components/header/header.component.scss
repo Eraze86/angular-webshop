@@ -1,4 +1,22 @@
 header{
-    height: 10rem;
+    position: relative;
+    height: 8rem;
     background-color: rgb(6, 78, 6);
+}
+h1{
+    padding: 1rem;
+
+
+}
+h3{
+    margin: 0;
+    position: absolute;
+    top: 0rem;
+    right: 1rem;
+    padding: 1rem;
+}
+button{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
