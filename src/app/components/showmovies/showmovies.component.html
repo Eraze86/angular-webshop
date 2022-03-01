@@ -1,5 +1,23 @@
-<div *ngFor="let m of showMovies">
-    {{ showMovies | json }}
-</div>
+
+<section>
+<article *ngFor="let m of showMovies">
+
+    <img [src] ="m.imageUrl">
+    <div class="containmovie">
+        <p class="moviename">Movie:</p>
+        <p>{{ m.name}}</p>
+    </div>
+    <div class="containprice">
+        <p>Price:</p>
+        <p class="price">{{ m.price}}</p>
+    </div>
+    <button>Lägg till</button>
+</article>
+
+</section> >
+
+
+
+
 
 

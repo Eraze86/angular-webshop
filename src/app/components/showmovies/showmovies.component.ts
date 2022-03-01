@@ -9,12 +9,12 @@ import { Movies } from 'src/app/module/movies';
 })
 export class ShowmoviesComponent implements OnInit {
 
- showMovies: Movies [] = []
+ showMovies: IData [] = []
   constructor(private service: MoviesService) { }
 
   ngOnInit(): any {
     this.service.movies$.subscribe((dataFromService: IData[]) => {
-      return this.showMovies = dataFromService,
+      this.showMovies = dataFromService,
       console.log(dataFromService)
     })
       this.service.getServerData()

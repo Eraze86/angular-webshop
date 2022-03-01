@@ -1,0 +1,40 @@
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+    article{
+        width: 10rem;
+        background-color: rgb(222, 222, 247);
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+        text-align: center;
+
+  
+    }
+}
+p{
+    margin:0;
+}
+img{
+    object-fit: contain;
+    width: 10rem;
+    height: 10rem;
+    padding-top: 0.5;
+}
+.containmovie{
+    margin-bottom: 0.5rem;
+    object-fit: contain;
+    .moviename{
+        font-weight: bold;
+    }
+}
+
+.containprice{
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    .price{
+        color:red;
+    }
+}
