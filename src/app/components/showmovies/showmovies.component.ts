@@ -44,9 +44,12 @@ toCheckout: number = 0;
   }
   putInCart(p: IData){
     this.order.push(p)
-    console.log(p)
+    
     localStorage.setItem('Order', JSON.stringify(this.order))
     this.toCheckout += +1
+   
+    localStorage.setItem('totalt', JSON.stringify(this.toCheckout))
+    console.log(this.toCheckout)
     // this.myList = 
 //när man trycker på knappen så ska den skicka information till kundvagnen där orden ska läggas. så det ska bli en lista
 //måste välja rätt id för att hämta rätt film. priset ska läggas ihop. 
