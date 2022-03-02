@@ -8,7 +8,7 @@ section{
         width: 10rem;
         background-color: rgb(222, 222, 247);
         margin-top: 0.5rem;
-        padding-top: 0.5rem;
+        padding: 0.5rem;
         text-align: center;
 
   
@@ -24,6 +24,7 @@ img{
     padding-top: 0.5;
 }
 .containmovie{
+    position: relative;
     margin-bottom: 0.5rem;
     object-fit: contain;
     .moviename{
@@ -37,4 +38,11 @@ img{
     .price{
         color:red;
     }
+}
+.showmore{
+    position: absolute;
+    top: -10rem;
+    background-color: red;
+    width: 10rem;
+
 }

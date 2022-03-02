@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SearchmoviesComponent } from './components/searchmovies/searchmovies.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+
 
 
 
@@ -19,7 +21,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ShowmoviesComponent,
     HeaderComponent,
     NavComponent,
-    SearchmoviesComponent
+    SearchmoviesComponent,
+    CheckoutComponent,
+
   ],
   imports: [
     BrowserModule,

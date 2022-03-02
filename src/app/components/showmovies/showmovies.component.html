@@ -1,23 +1,30 @@
+<!-- <div *ngIf="putInCart()">
+   
+    När man tryckt vill man att det ska komma upp ett nr som visar vad som är i checkout listan. 
+    
+</div> -->
 
 <section>
-<article *ngFor="let m of showMovies">
+    <article *ngFor="let m of showMovies" let i ="index" >
 
-    <img [src] ="m.imageUrl">
-    <div class="containmovie">
-        <p class="moviename">Movie:</p>
-        <p>{{ m.name}}</p>
-    </div>
-    <div class="containprice">
-        <p>Price:</p>
-        <p class="price">{{ m.price}}</p>
-    </div>
-    <button>Lägg till</button>
-</article>
+        <img [src]="m.imageUrl" (mouseover)="over()">
 
-</section> >
+        <div class="containmovie">
+            <p class="moviename">Movie:</p>
+            <p>{{ m.name}}</p>
 
+            <div class="showmore" *ngIf="[showMoreInfo]" (mouseleave)="leave()">
+                
+                {{ m.description }}
+                År: {{ m.year }}
+            </div>
+        </div>
 
+        <div class="containprice">
+            <p>Price:</p>
+            <p class="price">{{ m.price}} kr</p>
+        </div>
 
-
-
-
+        <button (click)="putInCart(m)">Lägg till</button>
+    </article>
+</section>
