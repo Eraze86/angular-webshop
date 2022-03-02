@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-
-  constructor() { }
+// myOrder: number [] = []
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-
+  myOrder = localStorage.getItem("order")
 }

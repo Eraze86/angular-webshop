@@ -5,15 +5,16 @@
 </div> -->
 
 <section>
-    <article *ngFor="let m of showMovies" let i ="index" >
-
-        <img [src]="m.imageUrl" (mouseover)="over()">
+    <article *ngFor="let m of showMovies; let i =index" >
+        <p  (click)="over(i)">Mer info</p>
+        <img [src]="m.imageUrl">
 
         <div class="containmovie">
             <p class="moviename">Movie:</p>
             <p>{{ m.name}}</p>
 
-            <div class="showmore" *ngIf="[showMoreInfo]" (mouseleave)="leave()">
+            <div class="showmore" *ngIf="showMoreInfo">
+                <button (click)="leave(i)">X</button>
                 
                 {{ m.description }}
                 År: {{ m.year }}
