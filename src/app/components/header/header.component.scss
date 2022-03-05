@@ -8,15 +8,23 @@ h1{
 
 
 }
-h3{
+#btncheckout{
     margin: 0;
     position: absolute;
-    top: 0rem;
+    top: 1rem;
     right: 1rem;
-    padding: 1rem;
+    
 }
-button{
+#btncheckout:hover{
+    background-color: red;
+   cursor: pointer;
+}
+#btnadmin{
     position: absolute;
     bottom: 1rem;
     right: 1rem;
+}
+a{
+    padding: 1rem;
+    color: black;
 }

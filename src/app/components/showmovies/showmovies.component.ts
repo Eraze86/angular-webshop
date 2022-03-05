@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IData } from 'src/app/module/Idata';
 import { MoviesService } from 'src/app/servie/movies.service';
-import { Movies } from 'src/app/module/movies';
+
 import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-showmovies',
@@ -21,7 +22,7 @@ export class ShowmoviesComponent implements OnInit {
   constructor(private service: MoviesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.service.movies$.subscribe((dataFromService: IData[]) => {
+    this.service.movies$.pipe(take(1)).subscribe((dataFromService: IData[]) => {
       this.showMovies = dataFromService,
         console.log(dataFromService)
     })
@@ -34,6 +35,7 @@ export class ShowmoviesComponent implements OnInit {
     //   console.log(this.checkOutId, "tjeckar ut")
     // })
   }
+
 
   over(i: number) {
     this.showMoreInfo = true

@@ -11,6 +11,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { SearchmoviesComponent } from './components/searchmovies/searchmovies.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 
@@ -23,6 +24,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     NavComponent,
     SearchmoviesComponent,
     CheckoutComponent,
+    AdminComponent,
 
   ],
   imports: [
