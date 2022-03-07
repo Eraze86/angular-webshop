@@ -14,18 +14,14 @@ import { OrderformService } from 'src/app/servie/orderform.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-orderForm = new FormGroup({
+userForm = new FormGroup({
   
   firstName: new FormControl(""),
   lastName:  new FormControl(""),
   street:  new FormControl(""),
   cityCode:  new FormControl(""),
   city:  new FormControl(""),
-  paymentMethod:  new FormGroup({
-    paypal: new FormControl(""),
-    kort: new FormControl(""),
-    klarna: new FormControl(""),
-  })
+  payment:  new FormControl("")
 });
   postId: any
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
@@ -36,21 +32,22 @@ orderForm = new FormGroup({
     // })
     // this.service.getOrderForm()
   }
-  submitForm(form: any) {
-
-    const body = { id: form.value.id, createdBy: form.value.createdBy, paymentMethod: form.value.paymentMethod };
-    this.http.post<Order>('https://reqres.in/api/posts', body).subscribe(data => {
-      console.log(data)
-      // this.postId = data.id;    
-    })
+  
       // const newFromData = {id: form.value.id  };
 
       // return this.service.getOrderForm(newFromData).subscribe((data: Order) =>{
       //   console.log(data)
       // })
 
-
+      submitUser(user: any) {
+        console.log()
+      
+        // const body = {createdBy: form.value.createdBy, paymentMethod: form.value.paymentMethod };
+        // this.http.post<Order>('https://reqres.in/api/posts', body).subscribe((data) => {
+        //   console.log(data)
+        //   this.postId = data.id;    
+        // })
+      }
 
   
-}
 }

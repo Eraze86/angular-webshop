@@ -1,30 +1,30 @@
+
+
+
 export class Order{
-    id: string;
-    companyId: string;
-    created: string;
+    id: number;
+    companyId: number;
+    created: Date;
     createdBy: string;
     paymentMethod: string;
-    Paypal: string;
-    totalPrice: string;
+    totalPrice: number;
     status: string;
     orderRows: string;
 
-    constructor(id:string,
-        companyId: string,
-        created: string,
-        createdBy: string,
-        paymentMethod: string,
-        Paypal: string,
-        totalPrice: string,
+    constructor(
+ 
+        id:number,
+        payment: string,
+        totalPrice: number,
         status: string,
-        orderRows: string,){
+        orderRows: string){
 
             this.id = id,
-            this.companyId = companyId,
-            this.created = created,
-            this.createdBy = createdBy,
-            this.paymentMethod =  paymentMethod,
-            this.Paypal = Paypal,
+            this.companyId = 39,
+            this.created = new Date,
+            this.createdBy =
+            this.paymentMethod =  payment,
+       
             this.totalPrice = totalPrice,
             this.status = status,
             this.orderRows = orderRows

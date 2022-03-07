@@ -6,12 +6,10 @@ section{
    
     article{
         width: 10rem;
-        background-color: rgb(222, 222, 247);
+        background-color: rgb(247, 206, 213);
         margin-top: 0.5rem;
         padding: 0.5rem;
-        text-align: center;
-
-  
+        text-align: center
     }
 }
 p{
@@ -21,7 +19,7 @@ img{
     object-fit: contain;
     width: 10rem;
     height: 10rem;
-    padding-top: 0.5;
+
 }
 .containmovie{
     position: relative;
@@ -38,11 +36,4 @@ img{
     .price{
         color:red;
     }
-}
-.showmore{
-    position: absolute;
-    top: -10rem;
-    background-color: red;
-    width: 10rem;
-
 }

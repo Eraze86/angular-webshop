@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { IData } from '../module/Idata';
 import { IOrder } from '../module/Iorder';
 
@@ -13,6 +13,7 @@ export class MoviesService {
 
 private showMovies = new Subject<IData[]>();
 movies$ = this.showMovies.asObservable();
+  messangeService: any;
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +21,4 @@ movies$ = this.showMovies.asObservable();
     this.http.get<IData[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/products").subscribe((dataFromApi: IData[]) =>
     this.showMovies.next(dataFromApi))
   }
-  
-
 }

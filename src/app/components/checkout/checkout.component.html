@@ -2,7 +2,7 @@ Order:
 
 
 <!-- <p *ngFor="let o of orderForm">{{ o.created }}</p> -->
-<form [formGroup]="orderForm" ng-submit="submit()">
+<form [formGroup]="userForm" >
     <label for="firstname">Förnamn:</label> 
     <input id="firstname" type="text" formControlName="firstName"><br/> 
     <label for="lastname">Efternamn:</label> 
@@ -14,14 +14,19 @@ Order:
     <label for="city">Stad:</label> 
     <input type="text" id="city" formControlName="city"><br/> 
     <p>Betalningsmetod:</p> 
-    <label>Paypal</label>
-    <input type="checkbox" formControlName="paypal"><br/>
+    <select formControlName="payment">
+        <option value="swish">Swish</option>
+        <option value="paypal">Paypal</option>
+        <option value="klarna">Klarna</option>
+        <option value="kort">Kort</option>
+    </select><br/><br/>
+   
 
 
-    <button (submit)="submitForm()" [disabled]='!orderForm.valid'>Lägg order</button>
+    <!-- <button (click)="submitUser()" [disabled]='!userForm.valid'>Lägg order</button> -->
     
 </form>
-<p> {{ orderForm.value }}</p>
+<p> {{ userForm.value | json}}</p>
 <!-- din beställning:
     Listan med det man tryckt i
     totala summan

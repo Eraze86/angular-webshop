@@ -12,6 +12,7 @@ import { SearchmoviesComponent } from './components/searchmovies/searchmovies.co
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { MovieComponent } from './components/movie/movie.component';
 
 
 
@@ -25,6 +26,7 @@ import { AdminComponent } from './components/admin/admin.component';
     SearchmoviesComponent,
     CheckoutComponent,
     AdminComponent,
+    MovieComponent,
 
   ],
   imports: [

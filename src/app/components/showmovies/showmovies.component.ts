@@ -14,7 +14,7 @@ export class ShowmoviesComponent implements OnInit {
 
   showMovies: IData[] = []
   order: IData[] = [];
-  checkOutId: number = 0;
+
   showMoreInfo: boolean = false
   toCheckout: number = 0;
 
@@ -29,24 +29,8 @@ export class ShowmoviesComponent implements OnInit {
 
     this.service.getServerData()
 
-    // this.route.params.subscribe((p) => {
-    //   console.log(p['id'], "pID")
-    //   this.checkOutId = + p['id']
-    //   console.log(this.checkOutId, "tjeckar ut")
-    // })
   }
 
-
-  over(i: number) {
-    this.showMoreInfo = true
-    console.log(i)
-
-  }
-  leave(i: number) {
-    this.showMoreInfo = false
-    console.log(i)
-
-  }
   putInCart(m: IData) {
     this.order.push(m)
 
