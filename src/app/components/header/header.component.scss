@@ -1,7 +1,18 @@
 header{
     position: relative;
+
     height: 8rem;
+    width: 100%;
     background-color: white;
+
+}
+
+.container{
+    position: fixed;
+    width: 100%;
+    background: white;
+    height: 8rem;
+    z-index: 1;
 
 }
 h1{

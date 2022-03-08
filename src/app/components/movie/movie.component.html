@@ -17,7 +17,8 @@
             {{ movie.price }} kr
         </li>
         <br/>
-    <button (click)="submitToOrderList">Lägg till</button>
+    <button (click)="putInCartMovie(movie)">Lägg till</button>
+    <div class="addtoorder" *ngIf="addOrder"> {{movie.name}} har lagts till i din lista</div>
     </ul>
     
 

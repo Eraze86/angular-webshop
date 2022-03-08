@@ -12,12 +12,13 @@ import { take } from 'rxjs';
 })
 export class ShowmoviesComponent implements OnInit {
 
+  addOrderCart: boolean = false
   showMovies: IData[] = []
   order: IData[] = [];
 
   showMoreInfo: boolean = false
   toCheckout: number = 0;
-
+ 
 
   constructor(private service: MoviesService, private route: ActivatedRoute) { }
 
@@ -31,7 +32,12 @@ export class ShowmoviesComponent implements OnInit {
 
   }
 
-  putInCart(m: IData) {
+  putInCart( m: IData) {
+    this.addOrderCart = true
+  setTimeout(() => {
+    this.addOrderCart = false
+    
+  }, 50000);
     this.order.push(m)
 
     localStorage.setItem('Order', JSON.stringify(this.order))
@@ -40,5 +46,6 @@ export class ShowmoviesComponent implements OnInit {
     localStorage.setItem('totalt', JSON.stringify(this.toCheckout))
     console.log(this.toCheckout)
       }
+
  
 }

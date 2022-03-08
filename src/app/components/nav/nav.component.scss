@@ -1,7 +1,14 @@
 nav{
 
     background-color: rgb(255, 161, 177);
-    // margin: 0rem 0rem 1rem 0rem;
+    position: relative;
+}
+div{
+    position: fixed;
+    top: 8rem;
+    background-color: rgb(255, 161, 177);
+    width: 100%;
+    z-index: 1;
 }
 ul{
     display: flex;
@@ -10,4 +17,5 @@ ul{
     list-style: none;
     margin: 0 3rem;
     padding: 1rem;
+
 }

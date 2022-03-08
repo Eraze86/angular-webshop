@@ -21,5 +21,6 @@
         </div>
 
         <button (click)="putInCart(m)">Lägg till</button>
+        <div class="addtoorder" *ngIf="addOrderCart"> {{m.name}} har lagts till i din lista</div>
     </article>
 </section>

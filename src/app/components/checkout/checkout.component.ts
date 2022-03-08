@@ -39,7 +39,7 @@ export class CheckoutComponent implements OnInit {
   // })
 
   submitUser() {
-    console.log();
+ ;
 
     const body: Order = {
       createdBy: this.userForm.get("firstName")?.value,

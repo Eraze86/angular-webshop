@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+
 import { IData } from 'src/app/module/Idata';
 import { MoviesService } from 'src/app/servie/movies.service';
 
@@ -10,7 +10,10 @@ import { MoviesService } from 'src/app/servie/movies.service';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
+  addOrder: boolean = false
 movieId: number = 0
+toCheckout: number = 0;
+order: IData[] = [];
 movie: IData = {
   id: "",
   name: "",
@@ -28,6 +31,7 @@ movie: IData = {
     private service: MoviesService) { }
 
   ngOnInit(): void {
+
     this.route.params.subscribe((p) => {
       console.log(p['id'])
       this.movieId = + p['id']
@@ -36,11 +40,23 @@ movie: IData = {
     })
 
     this.service.movie$.subscribe((dataFromService: IData) => {
-      this.movie = dataFromService,
-        console.log("heeej" ,dataFromService)
+      this.movie = dataFromService
     })
   }
-submitToOrderList(){
+putInCartMovie(movie: IData) {
+  this.addOrder = true
+  setTimeout(() => {
+    this.addOrder = false
+    
+  }, 1500);
+  
+  this.order.push(movie)
+
+  localStorage.setItem('OrderMovie', JSON.stringify(this.order))
+  this.toCheckout += +1
+
+  localStorage.setItem('totalt', JSON.stringify(this.toCheckout))
+  console.log(this.toCheckout)
   
 }
   }
