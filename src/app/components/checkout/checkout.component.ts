@@ -11,20 +11,19 @@ import { OrderformService } from 'src/app/servie/orderform.service';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss']
+  styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
-userForm = new FormGroup({
-  
-  firstName: new FormControl(""),
-  lastName:  new FormControl(""),
-  street:  new FormControl(""),
-  cityCode:  new FormControl(""),
-  city:  new FormControl(""),
-  payment:  new FormControl("")
-});
-  postId: any
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  userForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    street: new FormControl(''),
+    cityCode: new FormControl(''),
+    city: new FormControl(''),
+    payment: new FormControl(''),
+  });
+  postId: any;
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
   ngOnInit(): void {
     //   this.service.orders$.pipe(take(1)).subscribe((dataFromServiceOrder: IOrder[]) => {
     //     this.orderForm = dataFromServiceOrder,
@@ -32,22 +31,38 @@ userForm = new FormGroup({
     // })
     // this.service.getOrderForm()
   }
-  
-      // const newFromData = {id: form.value.id  };
 
-      // return this.service.getOrderForm(newFromData).subscribe((data: Order) =>{
-      //   console.log(data)
-      // })
+  // const newFromData = {id: form.value.id  };
 
-      submitUser(user: any) {
-        console.log()
-      
-        // const body = {createdBy: form.value.createdBy, paymentMethod: form.value.paymentMethod };
-        // this.http.post<Order>('https://reqres.in/api/posts', body).subscribe((data) => {
-        //   console.log(data)
-        //   this.postId = data.id;    
-        // })
-      }
+  // return this.service.getOrderForm(newFromData).subscribe((data: Order) =>{
+  //   console.log(data)
+  // })
 
-  
+  submitUser() {
+    console.log();
+
+    const body: Order = {
+      createdBy: this.userForm.get("firstName")?.value,
+      paymentMethod: this.userForm.get("payment")?.value,
+      id: 0,
+      created: new Date(),
+      companyId: 39,
+      totalPrice: 0,
+      status: 0,
+      orderRows: [],
+    };
+    this.http
+      .post<Order>(
+        'https://medieinstitutet-wie-products.azurewebsites.net/api/orders',
+        JSON.stringify(body), { 
+          headers: {
+            "content-type": "application/json"
+          }
+        }
+      )
+      .subscribe((data) => {
+        console.log(data);
+        this.postId = data.id;
+      });
+  }
 }

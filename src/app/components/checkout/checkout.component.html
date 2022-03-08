@@ -2,7 +2,7 @@ Order:
 
 
 <!-- <p *ngFor="let o of orderForm">{{ o.created }}</p> -->
-<form [formGroup]="userForm" >
+<form [formGroup]="userForm" (ngSubmit)="submitUser()" >
     <label for="firstname">Förnamn:</label> 
     <input id="firstname" type="text" formControlName="firstName"><br/> 
     <label for="lastname">Efternamn:</label> 
@@ -23,7 +23,7 @@ Order:
    
 
 
-    <!-- <button (click)="submitUser()" [disabled]='!userForm.valid'>Lägg order</button> -->
+    <button [disabled]='!userForm.valid'>Lägg order</button>
     
 </form>
 <p> {{ userForm.value | json}}</p>

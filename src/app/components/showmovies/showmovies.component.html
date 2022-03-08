@@ -6,12 +6,12 @@
 <app-searchmovies></app-searchmovies>
 <section>
     <article *ngFor="let m of showMovies; let i =index" >
-        <a routerLink="movie/{{ m.id}}">Mer Info</a>
+
         <img [src]="m.imageUrl">
 
         <div class="containmovie">
-            <p class="moviename">Movie:</p>
-            <p>{{ m.name}}</p>
+            <p class="moviename" >Movie:</p>
+            <a routerLink="movie/{{ m.id}}">{{ m.name}}</a>
 
         </div>
 

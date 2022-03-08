@@ -1,1 +1,26 @@
-<!-- <img [src]="m.imageUrl"> -->
+<section class="container">
+  <article >
+    <img class="moviepic" [src]="movie.imageUrl" />
+  </article>
+  <article class="movieinfo">
+    <h1>{{ movie.name }}</h1>
+    <ul><h2>Beskrivning:</h2>
+        <li>
+            {{ movie.description }}
+        </li>
+        <h3>Kom ut år:</h3>
+        <li>
+            {{ movie.year }}
+        </li>
+        <h3> Pris:</h3>
+        <li id="price">
+            {{ movie.price }} kr
+        </li>
+        <br/>
+    <button (click)="submitToOrderList">Lägg till</button>
+    </ul>
+    
+
+
+  </article>
+</section>

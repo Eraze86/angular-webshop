@@ -1,0 +1,36 @@
+.container{
+    margin: auto;
+    position: relative;
+
+}
+.moviepic{
+    width: 20rem;
+    object-fit: contain;
+}
+.movieinfo{
+    position: absolute;
+    text-align: left;
+    top: 0rem;
+    left: 25rem;
+    width: 30rem;
+    // font-size: 1rem;
+}
+
+h1{
+    font-size: 1.6rem;
+    margin-top: 0;
+}
+h2{
+    font-size: 1.2rem;
+}
+ul{
+    list-style-type: none;
+    line-height: 1rem;
+    li{
+        margin-left: 1rem;
+    }
+}
+#price{
+    color: red;
+    font-weight: bold;
+}
