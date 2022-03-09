@@ -1,8 +1,4 @@
-<!-- <div *ngIf="putInCart()">
-   
-    När man tryckt vill man att det ska komma upp ett nr som visar vad som är i checkout listan. 
-    
-</div> -->
+
 <app-searchmovies></app-searchmovies>
 <section>
     <article *ngFor="let m of showMovies; let i =index" >
@@ -21,6 +17,6 @@
         </div>
 
         <button (click)="putInCart(m)">Lägg till</button>
-        <div class="addtoorder" *ngIf="addOrderCart"> {{m.name}} har lagts till i din lista</div>
+        <!-- <div class="addtoorder" *ngIf="addOrderCart"> {{m.name}} har lagts till i din lista</div> -->
     </article>
 </section>

@@ -1,7 +1,13 @@
-Order: 
+
+beställningar: 
+<p>{{  orderMovies | json}}</p>
+
+<!-- <p *ngFor="let o of order; let i =index"> -->
+<!--     
+    Order: {{o }} | keyvalu</p>
+    {{ order | json }} -->
 
 
-<!-- <p *ngFor="let o of orderForm">{{ o.created }}</p> -->
 <form [formGroup]="userForm" (ngSubmit)="submitUser()" >
     <label for="firstname">Förnamn:</label> 
     <input id="firstname" type="text" formControlName="firstName"><br/> 

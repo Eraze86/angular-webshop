@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
-import { take } from 'rxjs';
-import { IOrder } from 'src/app/module/Iorder';
+import { IData } from 'src/app/module/Idata';
 import { Order } from 'src/app/module/order';
-import { OrderformService } from 'src/app/servie/orderform.service';
+import { pickMovies } from 'src/app/module/pickmovies';
+import { MoviesService } from 'src/app/servie/movies.service';
+
 
 @Component({
   selector: 'app-checkout',
@@ -14,6 +14,8 @@ import { OrderformService } from 'src/app/servie/orderform.service';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
+orderMovies: IData [] = [];
+// order: Array<pickMovies>[] = []
   userForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -22,25 +24,24 @@ export class CheckoutComponent implements OnInit {
     city: new FormControl(''),
     payment: new FormControl(''),
   });
-  postId: any;
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+
+  constructor(private route: ActivatedRoute, private http: HttpClient, private service: MoviesService) {}
   ngOnInit(): void {
-    //   this.service.orders$.pipe(take(1)).subscribe((dataFromServiceOrder: IOrder[]) => {
-    //     this.orderForm = dataFromServiceOrder,
-    //       console.log(dataFromServiceOrder)
-    // })
-    // this.service.getOrderForm()
+    this.orderMovies = this.service.getAddMovie()
+
+    // this.service.addMovie$.subscribe((dataFromService: IData[] ) =>
+    // this.orderMovies = dataFromService)
+    // this.order= JSON.parse(localStorage.getItem("order") || '{}')
+    // this.order.push(this.orderMovies)
+    // this.arrayOfKeys = Object.keys(this.order);
+ 
   }
 
-  // const newFromData = {id: form.value.id  };
 
-  // return this.service.getOrderForm(newFromData).subscribe((data: Order) =>{
-  //   console.log(data)
-  // })
+
 
   submitUser() {
- ;
-
+ 
     const body: Order = {
       createdBy: this.userForm.get("firstName")?.value,
       paymentMethod: this.userForm.get("payment")?.value,
@@ -58,11 +59,7 @@ export class CheckoutComponent implements OnInit {
           headers: {
             "content-type": "application/json"
           }
-        }
-      )
-      .subscribe((data) => {
-        console.log(data);
-        this.postId = data.id;
-      });
+        });
   }
+  // this.service.getAddMovie();
 }

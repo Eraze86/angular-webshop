@@ -4,6 +4,7 @@ import { MoviesService } from 'src/app/servie/movies.service';
 
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
+import { pickMovies } from 'src/app/module/pickmovies';
 
 @Component({
   selector: 'app-showmovies',
@@ -11,14 +12,13 @@ import { take } from 'rxjs';
   styleUrls: ['./showmovies.component.scss']
 })
 export class ShowmoviesComponent implements OnInit {
-
+  
+  addOrder: IData[] = []
   addOrderCart: boolean = false
   showMovies: IData[] = []
   order: IData[] = [];
-
   showMoreInfo: boolean = false
   toCheckout: number = 0;
- 
 
   constructor(private service: MoviesService, private route: ActivatedRoute) { }
 
@@ -30,22 +30,34 @@ export class ShowmoviesComponent implements OnInit {
 
     this.service.getServerData()
 
-  }
-
-  putInCart( m: IData) {
-    this.addOrderCart = true
-  setTimeout(() => {
-    this.addOrderCart = false
     
-  }, 50000);
-    this.order.push(m)
+  }
+  
+  putInCart(m: any) {
+ 
+  this.addOrder.push(m.name, m.price);
+  console.log(this.addOrder)
+  
+  let newOrder: IData = new IData (this.addOrder);
+    this.service.getAddMovie(newOrder)
+    console.log(newOrder)
+  
+}
 
-    localStorage.setItem('Order', JSON.stringify(this.order))
-    this.toCheckout += +1
 
-    localStorage.setItem('totalt', JSON.stringify(this.toCheckout))
-    console.log(this.toCheckout)
-      }
 
+
+  
+
+  
+    // this.order.push(m)
+    // console.log(m)
+
+    // localStorage.setItem('Order', JSON.stringify(this.order))
+    // this.toCheckout += +1
+
+    // localStorage.setItem('totalt', JSON.stringify(this.toCheckout))
+    // console.log(this.toCheckout)
+     
  
 }
