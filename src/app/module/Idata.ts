@@ -1,6 +1,6 @@
 export interface IData{
  
-        id: string
+        id: number
         name: string
         description: string
         price: number

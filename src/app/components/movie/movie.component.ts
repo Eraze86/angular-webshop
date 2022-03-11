@@ -15,7 +15,7 @@ movieId: number = 0
 toCheckout: number = 0;
 order: IData[] = [];
 movie: IData = {
-  id: "",
+  id: 0,
   name: "",
   description: "",
   price: 0,

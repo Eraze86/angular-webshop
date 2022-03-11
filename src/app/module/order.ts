@@ -19,7 +19,7 @@ export class Order{
         status: number,
         orderRows:OrderRow[]){
 
-            this.id = 0,
+            this.id = id,
             this.companyId = 39,
             this.created = new Date(),
             this.createdBy = users,

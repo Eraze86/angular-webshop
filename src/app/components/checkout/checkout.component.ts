@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { IData } from 'src/app/module/Idata';
 import { Order } from 'src/app/module/order';
 import { OrderRow } from 'src/app/module/orderrow';
@@ -18,8 +17,10 @@ import { OrderService } from 'src/app/servie/order.service';
 export class CheckoutComponent implements OnInit {
   addOrder: IData[] = [];
   total: number = 0;
+  order: Order [] = []
+  totalmovies: number = 0;
   // order:Observable <OrderRow[]> = new Observable
-  // order: orderRow = new Order
+  // orderRow: OrderRow = new OrderRow()
 
 
   userForm = new FormGroup({
@@ -44,7 +45,10 @@ export class CheckoutComponent implements OnInit {
 
     for(let i=0;i<this.addOrder.length;i++){   
       this.total+= this.addOrder[i].price
+      this.totalmovies = this.addOrder[i].id
       console.log(this.total)  }
+
+
 
       // this.service.order$.subscribe((data => {
       //   this.order = data;
@@ -65,12 +69,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   submitUser() {
-    // this.orderRows.push(
-    //   productId: "",
-    //   product: null,
-    //   amount: this.total,)
- 
-      const body: Order = {
+
+
+      const theOrder = {
         createdBy: this.userForm.get("firstName")?.value,
         paymentMethod: this.userForm.get("payment")?.value,
         id: 0,
@@ -78,16 +79,20 @@ export class CheckoutComponent implements OnInit {
         companyId: 39,
         totalPrice: this.total,
         status: 0,
-        orderRows: [],
+        orderRows: [ { id: 0, orderId: 0, productId: 76, product: null, amount: 2}],
       };
-      this.http
-        .post<Order[]>(
-          'https://medieinstitutet-wie-products.azurewebsites.net/api/orders',
-          JSON.stringify(body), { 
-            headers: {
-              "content-type": "application/json"
-            }
-          });
+      console.log(theOrder)
+      this.serviceorder.getOrderForm(theOrder).subscribe((data )=> {
+        console.log(data)
+      })
+      // this.http
+      //   .post<Order[]>(
+      //     'https://medieinstitutet-wie-products.azurewebsites.net/api/orders',
+      //     JSON.stringify(theOrder), { 
+      //       headers: {
+      //         "content-type": "application/json"
+      //       }
+      //     });
     }
 
   }

@@ -1,12 +1,16 @@
 export class OrderRow {
 
+    orderId: number;
+    id: number;
     productId: number;
-    product:string;
+    product: null;
     amount: number;
-    constructor(productId:number,product: string, amount:number){
-        this.productId = 0,
-        this.product = "",
-        this.amount = 0
+    constructor( orderId: number, id: number, productId:number,product: null, amount:number){
+        this.productId = productId,
+        this.product = null,
+        this.amount = amount,
+        this.id = 0,
+        this.orderId = 0
 
 
     }
