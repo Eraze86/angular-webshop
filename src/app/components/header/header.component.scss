@@ -1,44 +1,35 @@
-header{
-    position: relative;
-
-    height: 8rem;
-    width: 100%;
-    background-color: white;
-
+header {
+  position: relative;
+  height:10rem;
+  width: 100%;
 }
 
-.container{
-    position: fixed;
-    width: 100%;
-    background: white;
-    height: 8rem;
-    z-index: 1;
-
+.container {
+  position: fixed;
+  width: 100%;
+  background: white;
+  height: 10rem;
+  z-index: 1;
+  background-image: url("../../../pics/movie.jpg");
 }
-h1{
-    padding: 1rem;
-    margin: 0;
-    color: rgb(250, 124, 124);
-
-
-}
-#btncheckout{
-    margin: 0;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    
-}
-#btncheckout:hover{
-    background-color: rgb(250, 124, 124);
-   cursor: pointer;
-}
-#btnadmin{
+.linkcontainer{
     position: absolute;
     bottom: 1rem;
     right: 1rem;
 }
-a{
-    padding: 1rem;
-    color: black;
+h1 {
+  padding: 1rem;
+  margin-left: 10rem;
+  color: rgb(250, 124, 124);
+}
+
+a:hover {
+  background-color: #516af4;
+}
+
+a {
+  padding: 0.3rem 1rem;
+  color: black;
+
+
 }

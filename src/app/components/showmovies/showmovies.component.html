@@ -1,18 +1,15 @@
 <app-searchmovies></app-searchmovies>
 <section>
   <article *ngFor="let p of products; let i = index">
-    <img [src]="p.imageUrl" />
+    <div class="imgcontainer"><img [src]="p.imageUrl" /></div>
 
+    <div class="containprice">
+      <p class="price">{{ p.price }} kr</p>
+    </div>
     <div class="containmovie">
       <p class="moviename">Movie:</p>
       <a routerLink="movie/{{ p.id }}">{{ p.name }}</a>
     </div>
-
-    <div class="containprice">
-      <p>Price:</p>
-      <p class="price">{{ p.price }} kr</p>
-    </div>
-
-    <button (click)="putInCart(p)">Lägg till</button>
+   <button class="btnadd"(click)="putInCart(p)">Lägg till</button>
   </article>
 </section>

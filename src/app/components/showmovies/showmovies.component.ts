@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IData } from 'src/app/module/Idata';
 import { MoviesService } from 'src/app/servie/movies.service';
-
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 

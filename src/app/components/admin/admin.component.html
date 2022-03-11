@@ -1,11 +1,11 @@
-<p>Beställningar:</p>
+<h1>Beställningar:</h1>
 
 <div *ngFor="let o of orders">
   <p>
-    Id:{{ o.id }}
-    Created: {{ o.created }}
-    By: {{ o.createdBy }}
-    Paymethod: {{ o.paymentMethod }}
-    Total price: {{ o.totalPrice }}
+    <span>Id:</span>{{ o.id }}
+    <span>Created:</span> {{ o.created }}
+    <span>By: </span> {{ o.createdBy }}
+    <span>Paymethod:</span> {{ o.paymentMethod }}
+    <span>Total price:</span> {{ o.totalPrice }}
   </p>
 </div>

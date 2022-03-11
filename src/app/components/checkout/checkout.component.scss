@@ -1,18 +1,12 @@
 form label{
     display: block;
 }
-.container{
-    width: 10rem;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
+
+.containinfo{
+    width:30;
+    margin: 0.5rem;
 }
 
-img{
-    object-fit: contain;
-    width: 10rem;
-    height: 10rem;
-}
 h3{
     margin-left: 1rem;
     color: red;
@@ -21,4 +15,7 @@ h3{
 }
 h2{
     font-size: 1.2rem;
+}
+.remove{
+    background-color: #337fb1;
 }

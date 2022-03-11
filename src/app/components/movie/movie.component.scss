@@ -1,47 +1,55 @@
-.container{
-    margin: auto;
-    position: relative;
-    margin-top: 4rem;
-
+.container {
+  margin: auto;
+  position: relative;
 }
-.moviepic{
-    width: 20rem;
-    object-fit: contain;
+.moviepic {
+  width: 20rem;
+  object-fit: contain;
 }
-.movieinfo{
-    position: absolute;
-    text-align: left;
-    top: 0rem;
-    left: 25rem;
-    width: 30rem;
-    // font-size: 1rem;
+.movieinfo {
+  position: absolute;
+  text-align: left;
+  top: 0rem;
+  left: 25rem;
+  width: 30rem;
+  padding-bottom: 2rem;
 }
 
-h1{
-    font-size: 1.6rem;
-    margin-top: 0;
+h1 {
+  font-size: 1.6rem;
+  margin-top: 0;
 }
-h2{
-    font-size: 1.2rem;
+h2 {
+  font-size: 1.2rem;
 }
-ul{
-    list-style-type: none;
-    line-height: 1rem;
-    li{
-        margin-left: 1rem;
-    }
+ul {
+  list-style-type: none;
+  line-height: 1rem;
+  li {
+    margin-left: 1rem;
+  }
 }
-#price{
-    color: red;
-    font-weight: bold;
+#price {
+  color: #91020f;
+  font-weight: bold;
 }
-.addtoorder{
-position: fixed;
-top: 1rem;
-right:8rem;
-width: 20rem;
-padding: 1rem;
-border-radius: 10px;
-background-color: rgb(250, 223, 223);
-z-index: 2;
+.btnadd {
+  background-color: #337fb1;
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
+  margin: 0.5rem;
 }
+.btnadd:active{
+  background-color:#2a2b7d;
+ } 
+.btnback {
+  background-color: #337fb1;
+  position: absolute;
+  bottom: 0rem;
+  right: 0;
+  margin: 0.5rem;
+}
+.btnback:active{
+  background-color:#2a2b7d;
+ } 

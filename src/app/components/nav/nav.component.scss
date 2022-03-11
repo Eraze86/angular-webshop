@@ -1,23 +1,20 @@
-nav{
+nav {
+  position: relative;
 
-    background-color: rgb(255, 161, 177);
-    position: relative;
-
-    height: 3rem;
+  height: 3rem;
 }
-div{
-    position: fixed;
-    top: 8rem;
-    background-color: rgb(255, 161, 177);
-    width: 100%;
-    z-index: 1;
+div {
+  position: fixed;
+  top: 10rem;
+  background-color: #2a2b7d;
+  width: 100%;
+  z-index: 1;
 }
-ul{
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-    list-style: none;
-    margin: 0 3rem;
-    padding: 1rem;
-
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 3rem;
+  padding: 1rem;
 }

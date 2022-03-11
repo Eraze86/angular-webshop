@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { IData } from 'src/app/module/Idata';
 import { MoviesService } from 'src/app/servie/movies.service';
 

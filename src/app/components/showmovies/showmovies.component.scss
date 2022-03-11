@@ -1,55 +1,67 @@
-section{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-   
-    article{
-        width: 10rem;
-        background-color: rgb(247, 206, 213);
-        margin-top: 0.5rem;
-        padding: 0.5rem;
-        text-align: center
-    }
-}
-p{
-    margin:0;
-}
-img{
-    object-fit: contain;
-    width: 10rem;
-    height: 10rem;
-
-}
-.containmovie{
+  article {
+    width: 12rem;
+    background-color: #337fb1ad;
+    margin: 0.5rem;
+    padding: 0.5rem;
     position: relative;
-    margin-bottom: 0.5rem;
-    object-fit: contain;
-    .moviename{
-        font-weight: bold;
-    }
+
+  }
+}
+p {
+  margin: 0;
 }
 
-.containprice{
-    height: 2rem;
-    margin-bottom: 0.5rem;
-    .price{
-        color:red;
-    }
+img {
+  object-fit: cover;
+  width: 12rem;
 }
-.addtoorder{
-    position: fixed;
-    top: 1rem;
-    right:8rem;
-    width: 20rem;
-    padding: 1rem;
-    border-radius: 10px;
-    background-color: rgb(250, 223, 223);
-    z-index: 2;
-    }
-.btncheckout{
-    position: absolute;
-    top: 1rem;
-    background-color: red;
+.imgcontainer {
+
+  height: 12rem;
+  overflow: hidden;
 }
+.containmovie {
+  position: relative;
+  margin-bottom: 2rem;
+  object-fit: contain;
+  .moviename {
+    font-weight: bold;
+  }
+}
+.containprice {
+  height: 2rem;
+
+  .price {
+    color: #91020f;
+    font-weight: 800;
+    margin: 0.5rem 0rem;
+    font-size: 1.2rem;
+  }
+}
+.addtoorder {
+  position: fixed;
+  top: 1rem;
+  right: 8rem;
+  width: 20rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgb(250, 223, 223);
+  z-index: 2;
+}
+
+.btnadd {
+ background-color: #337fb1;
+ position: absolute;
+ bottom:0rem;
+ right: 0;
+ margin: 0.5rem;
+}
+.btnadd:active{
+  background-color:#2a2b7d;
+ } 

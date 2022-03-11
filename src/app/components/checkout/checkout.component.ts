@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import { IData } from 'src/app/module/Idata';
 import { Order } from 'src/app/module/order';
 import { OrderRow } from 'src/app/module/orderrow';
-import { pickMovies } from 'src/app/module/pickmovies';
 import { MoviesService } from 'src/app/servie/movies.service';
 import { OrderService } from 'src/app/servie/order.service';
 
@@ -41,7 +40,7 @@ export class CheckoutComponent implements OnInit {
     let orderLs: string = localStorage.getItem('order') || '[]';
     this.addOrder = JSON.parse(orderLs);
     console.log(this.addOrder);
-
+//räknar ut det totala priset, stannar kvar när man tar bort vara, medveten om det
     for (let i = 0; i < this.addOrder.length; i++) {
       this.total += this.addOrder[i].price;
       console.log(this.total);

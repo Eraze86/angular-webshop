@@ -4,25 +4,29 @@ import { Subject } from 'rxjs';
 import { Order } from '../module/order';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
   private order = new Subject<Order[]>();
   order$ = this.order.asObservable();
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getOrderForm(orderApi: any){
-    return this.http.post("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", orderApi)
-      
-}
-getOrder(){
-  this.http.get<Order[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/orders"+ "?companyId=39").subscribe ((data: Order[])=>{
-this.order.next(data)
-console.log(data)
-  })
-
-  // this.http.get<IData[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/products").subscribe((dataFromApi: IData[]) =>
-  // this.IProducts.next(dataFromApi))
-}
+  getOrderForm(orderApi: any) {
+    return this.http.post(
+      'https://medieinstitutet-wie-products.azurewebsites.net/api/orders',
+      orderApi
+    );
+  }
+  getOrder() {
+    this.http
+      .get<Order[]>(
+        'https://medieinstitutet-wie-products.azurewebsites.net/api/orders' +
+          '?companyId=39'
+      )
+      .subscribe((data: Order[]) => {
+        this.order.next(data);
+        console.log(data);
+      });
+  }
 }
