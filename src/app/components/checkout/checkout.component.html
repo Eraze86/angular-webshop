@@ -1,43 +1,35 @@
+<section><h1>Order:</h1>
+<article class="containinfo" *ngFor="let a of addOrder; let i = index">
+ 
+       <p>Movie: {{ a.name }} : {{ a.price }}</p>
+ 
 
-beställningar: 
-<p>{{  orderMovies | json}}</p>
+  <button (click)="remove(i)">Ta bort</button>
+</article>
+<p>total price: {{  total }}</p>
 
-<!-- <p *ngFor="let o of order; let i =index"> -->
-<!--     
-    Order: {{o }} | keyvalu</p>
-    {{ order | json }} -->
+</section>
+<div></div>
 
+<form [formGroup]="userForm" (ngSubmit)="submitUser()">
+  <label for="firstname">Förnamn:</label>
+  <input id="firstname" type="text" formControlName="firstName" /><br />
+  <label for="lastname">Efternamn:</label>
+  <input id="lastname" type="text" formControlName="lastName" /><br />
+  <label for="street">Adress:</label>
+  <input id="street" type="text" formControlName="street" /><br />
+  <label for="citycode">Postnr:</label>
+  <input type="text" id="citycode" formControlName="cityCode" /><br />
+  <label for="city">Stad:</label>
+  <input type="text" id="city" formControlName="city" /><br />
+  <p>Betalningsmetod:</p>
+  <select formControlName="payment">
+    <option value="swish">Swish</option>
+    <option value="paypal">Paypal</option>
+    <option value="klarna">Klarna</option>
+    <option value="kort">Kort</option></select
+  ><br /><br />
 
-<form [formGroup]="userForm" (ngSubmit)="submitUser()" >
-    <label for="firstname">Förnamn:</label> 
-    <input id="firstname" type="text" formControlName="firstName"><br/> 
-    <label for="lastname">Efternamn:</label> 
-    <input id="lastname" type="text" formControlName="lastName"><br/> 
-    <label for="street">Adress:</label> 
-    <input id="street"type="text" formControlName="street"><br/> 
-    <label for="citycode">Postnr:</label> 
-    <input type="text" id="citycode" formControlName="cityCode"><br/> 
-    <label for="city">Stad:</label> 
-    <input type="text" id="city" formControlName="city"><br/> 
-    <p>Betalningsmetod:</p> 
-    <select formControlName="payment">
-        <option value="swish">Swish</option>
-        <option value="paypal">Paypal</option>
-        <option value="klarna">Klarna</option>
-        <option value="kort">Kort</option>
-    </select><br/><br/>
-   
-
-
-    <button [disabled]='!userForm.valid'>Lägg order</button>
-    
+  <button  [disabled]="!userForm.valid">Lägg order</button>
 </form>
-<p> {{ userForm.value | json}}</p>
-<!-- din beställning:
-    Listan med det man tryckt i
-    totala summan
-    information om en själv i formulär
-    en send
-
-
--->
+<p>{{ userForm.value | json }}</p>

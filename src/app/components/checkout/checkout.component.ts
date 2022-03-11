@@ -4,9 +4,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IData } from 'src/app/module/Idata';
 import { Order } from 'src/app/module/order';
+import { OrderRow } from 'src/app/module/orderrow';
 import { pickMovies } from 'src/app/module/pickmovies';
 import { MoviesService } from 'src/app/servie/movies.service';
-
+import { OrderService } from 'src/app/servie/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -14,8 +15,13 @@ import { MoviesService } from 'src/app/servie/movies.service';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
-orderMovies: IData [] = [];
-// order: Array<pickMovies>[] = []
+  addOrder: IData[] = [];
+  total: number = 0;
+  order: Order[] = [];
+  totalmovies: number = 0;
+  orderRow: OrderRow[] = [];
+  amount: number = 0;
+
   userForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -25,41 +31,59 @@ orderMovies: IData [] = [];
     payment: new FormControl(''),
   });
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private service: MoviesService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private service: MoviesService,
+    private serviceorder: OrderService
+  ) {}
   ngOnInit(): void {
-    this.orderMovies = this.service.getAddMovie()
+    let orderLs: string = localStorage.getItem('order') || '[]';
+    this.addOrder = JSON.parse(orderLs);
+    console.log(this.addOrder);
 
-    // this.service.addMovie$.subscribe((dataFromService: IData[] ) =>
-    // this.orderMovies = dataFromService)
-    // this.order= JSON.parse(localStorage.getItem("order") || '{}')
-    // this.order.push(this.orderMovies)
-    // this.arrayOfKeys = Object.keys(this.order);
- 
+    for (let i = 0; i < this.addOrder.length; i++) {
+      this.total += this.addOrder[i].price;
+      console.log(this.total);
+    }
   }
 
-
-
+  remove(i: number) {
+    this.addOrder.splice(i, 1);
+    this.saveLs();
+  }
+  saveLs() {
+    localStorage.setItem('order', JSON.stringify(this.addOrder));
+  }
 
   submitUser() {
- 
-    const body: Order = {
-      createdBy: this.userForm.get("firstName")?.value,
-      paymentMethod: this.userForm.get("payment")?.value,
+    for (let i = 0; i < this.addOrder.length; i++) {
+      if (
+        !this.orderRow.some((movie) => movie.productId === this.addOrder[i].id)
+      ) {
+        this.orderRow.push({
+          id: 0,
+          orderId: 0,
+          product: null,
+          productId: this.addOrder[i].id,
+          amount: this.amount + 1,
+        });
+      }
+    }
+
+    const theOrder = {
+      createdBy: this.userForm.get('firstName')?.value,
+      paymentMethod: this.userForm.get('payment')?.value,
       id: 0,
       created: new Date(),
       companyId: 39,
-      totalPrice: 0,
+      totalPrice: this.total,
       status: 0,
-      orderRows: [],
+      orderRows: this.orderRow,
     };
-    this.http
-      .post<Order>(
-        'https://medieinstitutet-wie-products.azurewebsites.net/api/orders',
-        JSON.stringify(body), { 
-          headers: {
-            "content-type": "application/json"
-          }
-        });
+    console.log(theOrder);
+    this.serviceorder.getOrderForm(theOrder).subscribe((data) => {
+      console.log(data);
+    });
   }
-  // this.service.getAddMovie();
 }

@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { IData } from '../module/Idata';
-import { pickMovies } from '../module/pickmovies';
-
+import { OrderRow } from '../module/orderrow';
 
 @Injectable({
   providedIn: 'root'
@@ -11,28 +10,35 @@ import { pickMovies } from '../module/pickmovies';
 
 export class MoviesService {
 
-private showMovies = new Subject<IData[]>();
-movies$ = this.showMovies.asObservable();
+private IProducts = new Subject<IData[]>();
+products$ = this.IProducts.asObservable();
 private movie = new Subject<IData>();
 movie$ = this.movie.asObservable();
-private addAMovie: IData [] = []
 
-// private pickedMovie = new Subject<IData[]>();
-// addMovie$= this.pickedMovie.asObservable();
+private order = new Subject<OrderRow[]>();
+order$ = this.order.asObservable();
+// private addMovie: IData[] = [];
+// addMovie$: Observable<IData[]> = of(this.addMovie)
+
+
 
   constructor(private http: HttpClient) { }
 
   getServerData(){
     this.http.get<IData[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/products").subscribe((dataFromApi: IData[]) =>
-    this.showMovies.next(dataFromApi))
+    this.IProducts.next(dataFromApi))
   }
   getMovieById(id: number) {
     this.http.get<IData>("https://medieinstitutet-wie-products.azurewebsites.net/api/products/" + id)
     .subscribe((res: IData) => this.movie.next(res))
   }
-  getAddMovie(newOrder : IData){
-  this.addAMovie.push(newOrder)
+  // getAddMovie(newAdd:IData){
+  //   this.addMovie.push(newAdd)
     
-
-  } 
+  // } 
+  getOrder(order: OrderRow[]){
+    this.http.get<OrderRow[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/products/" + "?companyId39").subscribe((data: OrderRow[] )=>{
+      console.log(this.order.next(data));
+    })
+  }
 }

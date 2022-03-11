@@ -1,9 +1,9 @@
 export interface IData{
  
-        id: string
+        id: number
         name: string
         description: string
-        price: string
+        price: number
         imageUrl: string
         year: string
         added: string

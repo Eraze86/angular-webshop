@@ -1,6 +1,5 @@
+import { OrderRow } from "./orderrow";
 import { Users } from "./users";
-
-
 
 export class Order{
     id: number;
@@ -10,15 +9,15 @@ export class Order{
     paymentMethod: string;
     totalPrice: number;
     status: number;
-    orderRows: [];
+    orderRows: OrderRow[] = [];
 
     constructor(
         users: Users,
-        id:number,
+        id: number,
         payment: string,
         totalPrice: number,
         status: number,
-        orderRows:[]){
+        orderRows:OrderRow[]){
 
             this.id = id,
             this.companyId = 39,
