@@ -20,6 +20,7 @@ export class CheckoutComponent implements OnInit {
   totalmovies: number = 0;
   orderRow: OrderRow[] = [];
   amount: number = 0;
+  
 
   userForm = new FormGroup({
     firstName: new FormControl(''),
@@ -56,6 +57,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   submitUser() {
+  
     for (let i = 0; i < this.addOrder.length; i++) {
       if (
         !this.orderRow.some((movie) => movie.productId === this.addOrder[i].id)
@@ -84,5 +86,6 @@ export class CheckoutComponent implements OnInit {
     this.serviceorder.getOrderForm(theOrder).subscribe((data) => {
       console.log(data);
     });
+   
   }
 }
