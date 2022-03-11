@@ -14,13 +14,15 @@ export class OrderService {
 
   getOrderForm(orderApi: any){
     return this.http.post("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", orderApi)
-    
-
-    // ((dataFromOrderApi: Order) =>
-    // {this.order.next(dataFromOrderApi), 
-    //   console.log(dataFromOrderApi)}
-
-    
+      
 }
+getOrder(){
+  this.http.get<Order[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/orders"+ "?companyId=39").subscribe ((data: Order[])=>{
+this.order.next(data)
+console.log(data)
+  })
 
+  // this.http.get<IData[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/products").subscribe((dataFromApi: IData[]) =>
+  // this.IProducts.next(dataFromApi))
+}
 }
