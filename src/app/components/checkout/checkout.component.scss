@@ -1,4 +1,24 @@
 form label{
-    // width: 3rem;
     display: block;
+}
+.container{
+    width: 10rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    object-fit: contain;
+    width: 10rem;
+    height: 10rem;
+}
+h3{
+    margin-left: 1rem;
+    color: red;
+    font-size: 1rem;
+    line-height: 0.3rem;
+}
+h2{
+    font-size: 1.2rem;
 }

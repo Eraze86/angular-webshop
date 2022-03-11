@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderRow } from 'src/app/module/orderrow';
+import { MoviesService } from 'src/app/servie/movies.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+order: OrderRow [] = []
+
+  constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
-  }
+ 
 
+}
 }

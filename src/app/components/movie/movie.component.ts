@@ -18,7 +18,7 @@ movie: IData = {
   id: "",
   name: "",
   description: "",
-  price: "",
+  price: 0,
   imageUrl: "",
   year: "",
   added: "",
@@ -44,20 +44,7 @@ movie: IData = {
     })
   }
 putInCartMovie(movie: IData) {
-  this.addOrder = true
-  setTimeout(() => {
-    this.addOrder = false
-    
-  }, 1500);
-  
-  this.order.push(movie)
-
-  localStorage.setItem('OrderMovie', JSON.stringify(this.order))
-  this.toCheckout += +1
-
-  localStorage.setItem('totalt', JSON.stringify(this.toCheckout))
-  console.log(this.toCheckout)
-  
+ 
 }
   }
 
